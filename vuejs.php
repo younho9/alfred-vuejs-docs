@@ -9,12 +9,12 @@ require __DIR__ . '/vendor/autoload.php';
 $query = $argv[1];
 
 $workflow = new Workflow;
-$algolia = new Algolia('BH4D9OD16A', '85cc3221c9f23bfbaa4e3913dd7625ea');
+$algolia = new Algolia('ML0LEBN7FQ', 'f49cbd92a74532cc55cfbffa5e5a7d01');
 
 AlgoliaUserAgent::addSuffixUserAgentSegment('VueJS Alfred Workflow', '0.1.1');
 
 $index = $algolia->initIndex('vuejs');
-$search = $index->search($query, ['facetFilters' => 'version:v2']);
+$search = $index->search($query, ['facetFilters' => 'version:v3']);
 $results = $search['hits'];
 
 if (empty($results)) {
